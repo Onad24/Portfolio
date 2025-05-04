@@ -93,7 +93,7 @@
 			backgroundWidth = backgroundHeight * camera.aspect;
 			// @ts-ignore
 			if(window.innerHeight > window.innerWidth){
-				backgroundPlane.scale.set(backgroundWidth*2, backgroundHeight * 3, 1);
+				backgroundPlane.scale.set(backgroundWidth*2.2, backgroundHeight * 3.2, 1);
 			}else{
 				backgroundPlane.scale.set(backgroundWidth, backgroundHeight,  1);
 
@@ -298,7 +298,13 @@
 		const backgroundWidth = backgroundHeight * camera.aspect;
 		// @ts-ignore
 		
-		backgroundPlane.scale.set(backgroundWidth, backgroundHeight, 1);
+		if(window.innerHeight > window.innerWidth){
+			backgroundPlane.scale.set(backgroundWidth*2.2, backgroundHeight * 3.2, 1);
+		}
+		else{
+			backgroundPlane.scale.set(backgroundWidth, backgroundHeight,  1);
+
+		}
 	}
 </script>
 
