@@ -92,12 +92,18 @@
 			// @ts-ignore
 			backgroundWidth = backgroundHeight * camera.aspect;
 			// @ts-ignore
-			backgroundPlane.scale.set(backgroundWidth, backgroundHeight, 1);
+			if(window.innerHeight > window.innerWidth){
+				backgroundPlane.scale.set(backgroundWidth*2, backgroundHeight * 3, 1);
+			}else{
+				backgroundPlane.scale.set(backgroundWidth, backgroundHeight,  1);
 
+			}
 			// @ts-ignore
-			backgroundPlane.position.y = -40; // Push it far enough back to avoid interference
+			backgroundPlane.position.y = -35; // Push it far enough back to avoid interference
 			// @ts-ignore
+
 			backgroundPlane.position.z = -20; // Push it far enough back to avoid interference
+			
 			// @ts-ignore
 			scene.add(backgroundPlane);
 		});
@@ -291,6 +297,7 @@
 		// @ts-ignore
 		const backgroundWidth = backgroundHeight * camera.aspect;
 		// @ts-ignore
+		
 		backgroundPlane.scale.set(backgroundWidth, backgroundHeight, 1);
 	}
 </script>
