@@ -54,6 +54,19 @@
 		margin: 5px 0;
 	}
 
+	@media (max-width: 600px) {
+	 ul, p {
+		max-width: 400px;
+		font-size: 0.8rem;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+		
+	}
+	}
+
+
 	/* li {
 	list-style: none;
 	} */

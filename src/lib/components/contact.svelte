@@ -43,6 +43,19 @@
 		max-width: 500px;
 	}
 
+	@media (max-width: 600px) {
+	 p {
+		max-width: 400px;
+		font-size: 0.8rem;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+		
+	}
+	}
+
+
 	.next-button {
 		margin-top: 20px;
 		padding: 10px 20px;

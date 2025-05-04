@@ -20,11 +20,11 @@
 
 	h1 {
 		font-size: 3rem;font-weight: 700;
-            text-transform: uppercase;
+         text-transform: uppercase;
 		color: #000000;
 		letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(255, 255, 255,  0.5);
-            margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(255, 255, 255,  0.5);
+        margin-bottom: 1rem;
 	}
 
 	p {
@@ -36,6 +36,19 @@
 		color: #000000;
 		max-width: 500px;
 	}
+
+	@media (max-width: 600px) {
+	 p {
+		max-width: 400px;
+		font-size: 1rem;
+	}
+
+	h1 {
+		font-size: 1.3rem;
+		
+	}
+	}
+
 
 	.next-button {
 		margin-top: 20px;

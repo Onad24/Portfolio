@@ -21,7 +21,8 @@
 	}
 
 	h2 {
-		font-size: 3rem;font-weight: 700;
+		font-size: 3rem;
+		font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
@@ -39,6 +40,17 @@
 		max-width: 700px;
 	}
 
+	@media (max-width: 600px) {
+	p {
+		max-width: 400px;
+		font-size: 0.8rem;
+	}
+
+	h2 {
+		font-size: 1.2rem;
+		
+	}
+	}
 	.next-button {
 		margin-top: 20px;
 		padding: 10px 20px;
