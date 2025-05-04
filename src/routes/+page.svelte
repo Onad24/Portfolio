@@ -59,10 +59,33 @@
 		scrollNext();
     }
   }
+
+  let touchStartY = 0;
+
+	// @ts-ignore
+	function handleTouchStart(event) {
+	touchStartY = event.touches[0].clientY;
+}
+
+	// @ts-ignore
+	function handleTouchMove(event) {
+	const touchEndY = event.touches[0].clientY;
+	const deltaY = touchStartY - touchEndY;
+
+	if (Math.abs(deltaY) < 30 || isTransitioning) return; // small movement ignored
+
+	if (deltaY > 0) {
+		scrollNext(); // swipe up → next section
+	} else {
+		scrollPrev(); // swipe down → previous section
+	}
+}
 </script>
 
 <!-- Detect scroll events -->
-<svelte:window on:wheel={handleScroll} on:keydown={handleKey}/>
+<svelte:window on:wheel={handleScroll} on:keydown={handleKey} 
+on:touchstart={handleTouchStart}
+on:touchmove={handleTouchMove}/>
 
 <!-- Display the current section -->
 <Background bind:value={moveTo} />

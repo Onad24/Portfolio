@@ -1,14 +1,21 @@
 <script>
 	import { gsap } from 'gsap';
 	import { onMount } from 'svelte';
+	// @ts-ignore
 	import * as THREE from 'three';
+	// @ts-ignore
 	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
+	// @ts-ignore
 	let { value = $bindable(), ...props } = $props();
 
+	// @ts-ignore
 	let scene, camera, renderer, backgroundPlane;
+	// @ts-ignore
 	let asteroids = [];
+	// @ts-ignore
 	const backgroundSpeed = 0.002; // Adjust for background movement speed
+	// @ts-ignore
 	let backgroundOffset = 0;
 	const logos = ['svelte.glb', 'flutter.glb', 'csharp.glb', 'tailwind.glb', 'vbnet.glb'];
 	// const logos = ['svelte.glb', 'flutter.glb', 'csharp.glb', 'tailwind.glb', 'vb.glb'];
@@ -23,6 +30,7 @@
 
 		// Set up the camera
 		camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+		// @ts-ignore
 		camera.position.z = 2;
 
 		// Set up renderer
@@ -39,17 +47,21 @@
 
 		// Load and set up the background plane with panoramic image
 		const textureLoader = new THREE.TextureLoader();
+		// @ts-ignore
 		textureLoader.load('/assets/background2.jpg', (texture) => {
 			// Set texture scaling options
 			texture.flipY = false;
 			texture.minFilter = THREE.LinearFilter;
 			texture.magFilter = THREE.LinearFilter;
 
+			// @ts-ignore
 			const distance = camera.position.z - 10;
 
 			// Calculate the visible height and width based on the camera's FOV and aspect ratio
 			const frustumHeight =
+				// @ts-ignore
 				2 * Math.tan((camera.fov * Math.PI) / 360) * Math.abs(camera.position.z);
+			// @ts-ignore
 			const frustumWidth = frustumHeight * camera.aspect;
 
 			// Match the background geometry to the viewport dimensions
@@ -75,17 +87,24 @@
 
 			backgroundPlane = new THREE.Mesh(backgroundGeometry, backgroundMaterial);
 
+			// @ts-ignore
 			backgroundHeight = 2 * Math.tan((camera.fov * Math.PI) / 360) * distance;
+			// @ts-ignore
 			backgroundWidth = backgroundHeight * camera.aspect;
+			// @ts-ignore
 			backgroundPlane.scale.set(backgroundWidth, backgroundHeight, 1);
 
+			// @ts-ignore
 			backgroundPlane.position.y = -40; // Push it far enough back to avoid interference
+			// @ts-ignore
 			backgroundPlane.position.z = -20; // Push it far enough back to avoid interference
+			// @ts-ignore
 			scene.add(backgroundPlane);
 		});
 
 		// Lighting
 		const light = new THREE.PointLight(0x696969, 1, 100);
+		// @ts-ignore
 		light.position.set(10, 10, 10);
 		scene.add(light);
 
@@ -95,11 +114,13 @@
 
 		// Add a directional light to highlight the model
 		const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+		// @ts-ignore
 		directionalLight.position.set(5, 10, 7.5);
 		scene.add(directionalLight);
 
 		// Create asteroids with programming logos
 		// logos.forEach((logo, i) => createAsteroidWithLogo(logo, i * 2 - 4));
+		// @ts-ignore
 		Array(600).fill().forEach(addStar2);
 
 		animate();
@@ -114,6 +135,7 @@
 
 		// Rotate and drift asteroids
 
+		// @ts-ignore
 		asteroids.forEach((asteroid) => {
 			asteroid.rotation.x += 0.01;
 			asteroid.rotation.y += 0.01;
@@ -132,6 +154,7 @@
 
 			asteroid.position.y = asteroid.position.y + 0.01;
 
+			// @ts-ignore
 			if (asteroid.position.z > camera.position.z) {
 				asteroid.position.z = Math.random() * -10 - 3;
 			}
@@ -141,17 +164,21 @@
 		// backgroundOffset += backgroundSpeed;
 		// backgroundPlane.position.x = Math.sin(backgroundOffset) * 0.001;
 
+		// @ts-ignore
 		renderer.render(scene, camera);
 	}
 
+	// @ts-ignore
 	function animateStars(_distance) {
 		// Example: Make each star move in random directions
+		// @ts-ignore
 		asteroids.forEach((asteroid) => {
 			asteroid.rotation.x += 0.01;
 			asteroid.rotation.y += 0.01;
 			// asteroidOffset += asteroidSpeed;
 			// asteroid.position.x = asteroid.position.x + Math.sin(asteroidOffset) * 0.3;
 
+			// @ts-ignore
 			if (asteroid.position.z > camera.position.z) {
 				asteroid.position.z = Math.random() * -10 - 3;
 			}
@@ -165,7 +192,9 @@
 			});
 		});
 
+		// @ts-ignore
 		gsap.to(backgroundPlane.position, {
+			// @ts-ignore
 			y: backgroundPlane.position.y + _distance,
 			duration: 1, // Duration in seconds
 			ease: 'power2.out'
@@ -187,6 +216,7 @@
 		// });
 	}
 
+	// @ts-ignore
 	function addStar() {
 		const asteroidGeometry = new THREE.SphereGeometry(0.25, 10, 10);
 		const textureLoader = new THREE.TextureLoader();
@@ -196,10 +226,12 @@
 		const x = THREE.MathUtils.randFloatSpread(200);
 		const y = THREE.MathUtils.randFloatSpread(20);
 		const z = THREE.MathUtils.randFloatSpread(100);
+		// @ts-ignore
 		asteroid.position.set(x, y, z);
 
 		setTimeout(function () {
 			asteroids.push(asteroid);
+			// @ts-ignore
 			scene.add(asteroid);
 		}, Math.random() * 1000);
 	}
@@ -208,6 +240,7 @@
 		const loader = new GLTFLoader();
 		loader.load(
 			`/assets/glb/${logos[Math.floor(Math.random() * 4.44)]}`,
+			// @ts-ignore
 			(gltf) => {
 				// Add the loaded model to the scene
 
@@ -226,12 +259,15 @@
 				model.rotation.z = Math.random() * 2 * Math.PI;
 
 				asteroids.push(model);
+				// @ts-ignore
 				scene.add(model);
 			},
+			// @ts-ignore
 			(xhr) => {
 				// Optional: Show loading progress
 				console.log((xhr.loaded / xhr.total) * 100 + '% loaded');
 			},
+			// @ts-ignore
 			(error) => {
 				// Handle errors
 				console.error('An error happened', error);
@@ -240,14 +276,21 @@
 	}
 
 	function onWindowResize() {
+		// @ts-ignore
 		camera.aspect = window.innerWidth / window.innerHeight;
+		// @ts-ignore
 		camera.updateProjectionMatrix();
+		// @ts-ignore
 		renderer.setSize(window.innerWidth, window.innerHeight);
 
 		// Recalculate background dimensions on resize
+		// @ts-ignore
 		const distance = camera.position.z - 10;
+		// @ts-ignore
 		const backgroundHeight = 2 * Math.tan((camera.fov * Math.PI) / 360) * distance;
+		// @ts-ignore
 		const backgroundWidth = backgroundHeight * camera.aspect;
+		// @ts-ignore
 		backgroundPlane.scale.set(backgroundWidth, backgroundHeight, 1);
 	}
 </script>
