@@ -5,9 +5,8 @@
 <div class="certificates" transition:scale={{ duration: 600 }}>
 	<h2>Certificates</h2>
 	<ul>
-		<li>Full Stack Web Development - XYZ Institute</li>
-		<li>JavaScript Specialist - ABC Academy</li>
-		<li>Best Programmer Award - 2023</li>
+		<li>Software Development - ICOTP ICT 2017</li>
+		<li>Best Programmer Award - ICOTP ICT 2017</li>
 	</ul>
 </div>
 
@@ -21,19 +20,33 @@
 	}
 
 	h2 {
-		font-size: 2.5rem;
-		color: #f5f5f5;
+		font-size: 3rem;font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+			text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+
+		color: #000000;
+		margin-bottom: 1rem;
 	}
 
 	ul {
-		color: #ccc;
-		max-width: 600px;
-		font-size: 1rem;
+		font-size: 1.3rem;
+		font-weight: 400;
+        line-height: 1.5;
+		text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        margin-bottom: 1.5rem;
+		color: #000000;
+
+		max-width: 700px;
 		text-align: left;
 	}
 
 	ul li {
 		margin: 5px 0;
+	}
+
+	li {
+	list-style: none;
 	}
 
 	.next-button {

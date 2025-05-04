@@ -4,10 +4,10 @@
 
 <div class="experience" transition:scale={{ duration: 600 }}>
 	<h2>Experience</h2>
-	<p>I have over 5 years of experience working with various technologies in the industry.</p>
+	<p>I have over 8 years of experience working with various technologies in the industry.</p>
 	<ul>
-		<li>Frontend Developer at XYZ Corp - 3 years</li>
-		<li>Backend Developer at ABC Inc. - 2 years</li>
+		<li>Desktop Developer at IDCSI - 5 years</li>
+		<li>Full-stack Developer at IDCSI - 2 years</li>
 		<li>Freelance Developer - 1 year</li>
 	</ul>
 </div>
@@ -22,26 +22,41 @@
 	}
 
 	h2 {
-		font-size: 2.5rem;
-		color: #f5f5f5;
+		font-size: 3rem;font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255,  0.5);
+		color: #000000;
+		margin-bottom: 1rem;
 	}
 
 	p {
-		font-size: 1.1rem;
-		color: #ccc;
+		font-size: 1.3rem;
+		font-weight: 400;
+        line-height: 1.5;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255,  0.4);
+		color: #000000;
+
 		max-width: 600px;
 	}
-
 	ul {
-		color: #ccc;
+		font-size: 1.3rem;
+		font-weight: 400;
+        line-height: 1.5;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255,  0.4);
+        margin-bottom: 1.5rem;
+		color: #000000;
 		max-width: 600px;
-		font-size: 1rem;
 		text-align: left;
 	}
 
 	ul li {
 		margin: 5px 0;
 	}
+
+	/* li {
+	list-style: none;
+	} */
 
 	.next-button {
 		margin-top: 20px;

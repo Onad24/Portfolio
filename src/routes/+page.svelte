@@ -40,6 +40,7 @@
 	}
 
 	// Capture scroll event and determine direction
+	// @ts-ignore
 	function handleScroll(event) {
 		if (isTransitioning) return;
 
@@ -49,10 +50,19 @@
 			scrollPrev();
 		}
 	}
+
+	// @ts-ignore
+	function handleKey(event) {
+    if (event.key === 'ArrowUp') {
+		scrollPrev();
+    } else if (event.key === 'ArrowDown') {
+		scrollNext();
+    }
+  }
 </script>
 
 <!-- Detect scroll events -->
-<svelte:window on:wheel={handleScroll} />
+<svelte:window on:wheel={handleScroll} on:keydown={handleKey}/>
 
 <!-- Display the current section -->
 <Background bind:value={moveTo} />
@@ -76,9 +86,8 @@
 		margin: 0;
 		font-family: 'Arial', sans-serif;
 		overflow: hidden;
-		background-color: #121212;
 		color: #f5f5f5;
-		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+		text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
 	}
 
 	.section-wrapper {

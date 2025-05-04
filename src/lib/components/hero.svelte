@@ -5,7 +5,7 @@
 <div class="hero" transition:scale={{ duration: 600 }}>
 	<h1>Welcome to My Portfolio</h1>
 	<p>
-		I’m a passionate developer with experience in building responsive and dynamic web applications.
+		Hi, I'm Ronald, a Software Developer crafting seamless software applications with a focus on performance and user experience.</p><p>Check out my projects to see my code in action!
 	</p>
 </div>
 
@@ -19,13 +19,21 @@
 	}
 
 	h1 {
-		font-size: 3rem;
-		color: #f5f5f5;
+		font-size: 3rem;font-weight: 700;
+            text-transform: uppercase;
+		color: #000000;
+		letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255,  0.5);
+            margin-bottom: 1rem;
 	}
 
 	p {
-		font-size: 1.2rem;
-		color: #ccc;
+		font-size: 1.3rem;
+		font-weight: 600;
+        line-height: 1.5;
+        text-shadow: 1px 1px 3px rgba(255, 255, 255,  0.4);
+        margin-bottom: 1.5rem;
+		color: #000000;
 		max-width: 500px;
 	}
 
