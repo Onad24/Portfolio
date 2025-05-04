@@ -6,8 +6,6 @@ const config = {
 	preprocess: sveltePreprocess(),
 	kit: {
 	  adapter: adapter(),
-	  // Optional: enable SSR (usually on by default)
-	  ssr: true,
 	}
 };
 
